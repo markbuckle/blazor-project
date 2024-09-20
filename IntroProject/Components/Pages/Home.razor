@@ -1,0 +1,31 @@
+﻿@page "/"
+@*using is the same as import*@
+@using Models
+
+@* Refer to variables within the @code{} block using an @ *@
+<h2>One-Way Data Binding</h2>
+<h2>@name</h2>
+<br />
+<h2>@example.Id</h2>
+<h2> @example.Name</h2>
+
+<br />
+<br />
+<h2>Two-Way Data Binding</h2>
+
+<input type="text" @bind-value="@example.Name" @bind-value:event="oninput" />
+
+<input type="number" @bind-value="@example.Id" @bind-value:event="oninput" />
+
+
+@* C# code has to be written within an @code{} block *@
+@code{
+	string name = "Bob";
+
+	BaseModel example = new BaseModel()
+		{
+			Id = 1,
+			Name = "Sam"
+		};
+
+}
